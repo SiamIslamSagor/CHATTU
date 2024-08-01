@@ -17,7 +17,7 @@ import {
   Logout as LogoutIcon,
   Notifications as NotificationsIcon,
 } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { lazy, Suspense, useState } from "react";
 
 const NewGroup = lazy(() => import("../specific/NewGroup"));
@@ -62,17 +62,26 @@ function Header() {
           position="static"
           sx={{
             bgcolor: orange,
+            zIndex: 9999999999,
           }}
         >
           <Toolbar>
-            <Typography
-              variant="h6"
-              sx={{
-                display: { xs: "none", sm: "block" },
+            <Link
+              to={"/"}
+              style={{
+                textDecoration: "none",
               }}
             >
-              Chattu
-            </Typography>
+              <Typography
+                variant="h6"
+                color="white"
+                sx={{
+                  display: { xs: "none", sm: "block" },
+                }}
+              >
+                Chattu
+              </Typography>
+            </Link>
             <Box
               sx={{
                 display: { xs: "block", sm: "none" },
