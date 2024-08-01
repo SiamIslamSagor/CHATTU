@@ -1,17 +1,15 @@
+import { useInputValidation } from "6pp";
 import {
-  Avatar,
   Button,
   Dialog,
   DialogTitle,
-  ListItem,
   Stack,
   TextField,
   Typography,
 } from "@mui/material";
+import { useState } from "react";
 import { sampleUsers } from "../../constants/sampleData";
 import UserItem from "../shared/UserItem";
-import { useInputValidation } from "6pp";
-import { useState } from "react";
 
 const NewGroup = () => {
   const groupName = useInputValidation("");
@@ -20,7 +18,11 @@ const NewGroup = () => {
   const [selectedMembers, setSelectedMembers] = useState([]);
 
   const handleSelectMember = id => {
-    setSelectedMembers(prev => [...prev, id]);
+    setSelectedMembers(prev =>
+      prev.includes(id)
+        ? prev.filter(currentEl => currentEl !== id)
+        : [...prev, id]
+    );
   };
 
   console.log(selectedMembers);
@@ -29,8 +31,12 @@ const NewGroup = () => {
     console.log("object");
   };
 
+  const handleDialogClose = () => {
+    console.log("object");
+  };
+
   return (
-    <Dialog open>
+    <Dialog open onClose={handleDialogClose}>
       <Stack p={{ xs: "1rem", sm: "3rem" }} width={"25rem"} spacing={"2rem"}>
         <DialogTitle variant="h4" textAlign={"center"}>
           New Group
@@ -48,6 +54,7 @@ const NewGroup = () => {
           {members.map(user => (
             <UserItem
               key={user?._id}
+              isAdded={selectedMembers.includes(user._id)}
               user={user}
               handler={handleSelectMember}
             />
