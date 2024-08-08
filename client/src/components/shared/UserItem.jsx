@@ -7,6 +7,7 @@ const MemorizedUserItem = ({
   handler,
   handlerIsLoading,
   isAdded = false,
+  styling = {},
 }) => {
   const { name, _id, avatar } = user;
   return (
@@ -16,6 +17,7 @@ const MemorizedUserItem = ({
         alignItems={"center"}
         spacing={"1rem"}
         width={"100%"}
+        {...styling}
       >
         <Avatar />
 
