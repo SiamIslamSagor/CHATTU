@@ -213,7 +213,7 @@ const Groups = () => {
             sm: "block",
           },
 
-          backgroundImage: bgGradient,
+          // backgroundImage: bgGradient,
         }}
       >
         <GroupList myGroups={sampleChats} chatId={chatId} />
@@ -313,7 +313,16 @@ const Groups = () => {
 };
 
 const GroupList = ({ w = "100%", myGroups = [], chatId }) => (
-  <Stack width={w}>
+  <Stack
+    width={w}
+    sx={{
+      backgroundImage: bgGradient,
+      height: "100vh",
+      // overflowY: "auto",
+      // border: "8px solid green",
+    }}
+    overflow={"auto"}
+  >
     {myGroups.length > 0 ? (
       myGroups.map(group => (
         <GroupListItem key={group._id} group={group} chatId={chatId} />

@@ -2,6 +2,8 @@ export const sampleChats = [
   {
     avatar: [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+      // "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+      // "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
     ],
     name: "Jhon Doe",
     _id: "1",
@@ -17,6 +19,168 @@ export const sampleChats = [
     groupChat: true,
     members: ["1", "2", "3"],
   },
+  // {
+  //   avatar: [
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+  //   ],
+  //   name: "Jhon Boe",
+  //   _id: "3",
+  //   groupChat: true,
+  //   members: ["1", "2", "3"],
+  // },
+  // {
+  //   avatar: [
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+  //   ],
+  //   name: "Jhon Boe",
+  //   _id: "4",
+  //   groupChat: true,
+  //   members: ["1", "2", "3"],
+  // },
+  // {
+  //   avatar: [
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+  //   ],
+  //   name: "Jhon Boe",
+  //   _id: "5",
+  //   groupChat: true,
+  //   members: ["1", "2", "3"],
+  // },
+  // {
+  //   avatar: [
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+  //   ],
+  //   name: "Jhon Boe",
+  //   _id: "6",
+  //   groupChat: true,
+  //   members: ["1", "2", "3"],
+  // },
+  // {
+  //   avatar: [
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+  //   ],
+  //   name: "Jhon Boe",
+  //   _id: "7",
+  //   groupChat: true,
+  //   members: ["1", "2", "3"],
+  // },
+  // {
+  //   avatar: [
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+  //   ],
+  //   name: "Jhon Boe",
+  //   _id: "8",
+  //   groupChat: true,
+  //   members: ["1", "2", "3"],
+  // },
+  // {
+  //   avatar: [
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+  //   ],
+  //   name: "Jhon Boe",
+  //   _id: "9",
+  //   groupChat: true,
+  //   members: ["1", "2", "3"],
+  // },
+  // {
+  //   avatar: [
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+  //   ],
+  //   name: "Jhon Boe",
+  //   _id: "10",
+  //   groupChat: true,
+  //   members: ["1", "2", "3"],
+  // },
+  // {
+  //   avatar: [
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+  //   ],
+  //   name: "Jhon Boe",
+  //   _id: "11",
+  //   groupChat: true,
+  //   members: ["1", "2", "3"],
+  // },
+  // {
+  //   avatar: [
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+  //   ],
+  //   name: "Jhon Boe",
+  //   _id: "12",
+  //   groupChat: true,
+  //   members: ["1", "2", "3"],
+  // },
+  // {
+  //   avatar: [
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+  //   ],
+  //   name: "Jhon Boe",
+  //   _id: "13",
+  //   groupChat: true,
+  //   members: ["1", "2", "3"],
+  // },
+  // {
+  //   avatar: [
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+  //   ],
+  //   name: "Jhon Boe",
+  //   _id: "14",
+  //   groupChat: true,
+  //   members: ["1", "2", "3"],
+  // },
+  // {
+  //   avatar: [
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+  //   ],
+  //   name: "Jhon Boe",
+  //   _id: "15",
+  //   groupChat: true,
+  //   members: ["1", "2", "3"],
+  // },
+  // {
+  //   avatar: [
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+  //   ],
+  //   name: "Jhon Boe",
+  //   _id: "16",
+  //   groupChat: true,
+  //   members: ["1", "2", "3"],
+  // },
+  // {
+  //   avatar: [
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+  //   ],
+  //   name: "Jhon Boe",
+  //   _id: "17",
+  //   groupChat: true,
+  //   members: ["1", "2", "3"],
+  // },
+  // {
+  //   avatar: [
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+  //   ],
+  //   name: "Jhon Boe",
+  //   _id: "18",
+  //   groupChat: true,
+  //   members: ["1", "2", "3"],
+  // },
+  // {
+  //   avatar: [
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+  //   ],
+  //   name: "Jhon Boe",
+  //   _id: "19",
+  //   groupChat: true,
+  //   members: ["1", "2", "3"],
+  // },
+  // {
+  //   avatar: [
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+  //   ],
+  //   name: "Jhon Boe",
+  //   _id: "20",
+  //   groupChat: true,
+  //   members: ["1", "2", "3"],
+  // },
 ];
 
 export const sampleUsers = [
