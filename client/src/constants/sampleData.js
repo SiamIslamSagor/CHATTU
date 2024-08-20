@@ -255,3 +255,122 @@ export const sampleMessage = [
     createdAt: "2024-07-31T18:00:00.000Z",
   },
 ];
+
+export const dashboardData = {
+  users: [
+    {
+      name: "Jhon Doe",
+      avatar: [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+      ],
+      _id: "lks88883jhJJ8j33kll",
+      username: "jhon-doe",
+      friends: 20,
+      groups: 5,
+    },
+    {
+      name: "Jhon Boe",
+      avatar: [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+      ],
+      _id: "2lkn2l342l39a09dsfkK",
+      username: "jhon-boe",
+      friends: 20,
+      groups: 25,
+    },
+  ],
+  chats: [
+    {
+      name: "LabadBass Group",
+      avatar: [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+      ],
+      _id: "2",
+      groupChat: false,
+      members: [
+        {
+          _id: "1",
+          avatar:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+        },
+        {
+          _id: "2",
+          avatar:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+        },
+      ],
+      totalMembers: 2,
+      totalMessages: 20,
+      creator: {
+        name: "Jhon Boe",
+        avatar: [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+        ],
+      },
+    },
+    {
+      name: "L*Da Luston Group",
+      avatar: [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+      ],
+      _id: "23",
+      groupChat: false,
+      members: [
+        {
+          _id: "1",
+          avatar:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+        },
+        {
+          _id: "2",
+          avatar:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+        },
+      ],
+      totalMembers: 2,
+      totalMessages: 20,
+      creator: {
+        name: "Jhon Doe",
+        avatar: [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdLZAJzeEA2iYjsrN4CEXrg8ATQ1tB04blQ&s",
+        ],
+      },
+    },
+  ],
+  messages: [
+    {
+      attachments: [
+        {
+          public_id: "slfjowijfwl",
+          url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/JPEG_example_flower.jpg",
+        },
+      ],
+      content: "Tu BC hain",
+      _id: "sdkf9wsf4rwklkfdke",
+      sender: {
+        avatar: "https://www.w3schools.com/howto/img_avatar.png",
+        name: "Chaman",
+      },
+      chat: "chateId",
+      groupChat: false,
+      createdAt: "2024-02-12T10:41:30.630Z",
+    },
+    {
+      attachments: [
+        {
+          public_id: "slfjowijfwl",
+          url: "https://img.freepik.com/free-photo/photo-delicious-hamburger-isolated-white-background_125540-3378.jpg",
+        },
+      ],
+      content: "Tu bhi BC hain",
+      _id: "sdkf9w4rwklkfdke",
+      sender: {
+        avatar: "https://www.w3schools.com/howto/img_avatar.png",
+        name: "Chamanni",
+      },
+      chat: "chateId",
+      groupChat: true,
+      createdAt: "2024-07-31T18:00:00.000Z",
+    },
+  ],
+};

@@ -1,5 +1,13 @@
 /* eslint-disable react/prop-types */
 import {
+  Add as AddIcon,
+  Group as GroupIcon,
+  Logout as LogoutIcon,
+  Menu as MenuIcon,
+  Notifications as NotificationsIcon,
+  Search as SearchIcon,
+} from "@mui/icons-material";
+import {
   AppBar,
   Backdrop,
   Box,
@@ -8,17 +16,9 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import { orange } from "../../constants/color";
-import {
-  Menu as MenuIcon,
-  Search as SearchIcon,
-  Add as AddIcon,
-  Group as GroupIcon,
-  Logout as LogoutIcon,
-  Notifications as NotificationsIcon,
-} from "@mui/icons-material";
-import { Link, useNavigate } from "react-router-dom";
 import { lazy, Suspense, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { orange } from "../../constants/color";
 
 const NewGroup = lazy(() => import("../specific/NewGroup"));
 const SearchDialog = lazy(() => import("../specific/Search"));

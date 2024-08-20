@@ -1,9 +1,12 @@
 import { Avatar, AvatarGroup, Box, Stack } from "@mui/material";
 import { transformImage } from "../../lib/features";
+import { useLocation } from "react-router-dom";
 
 // Todo: Transform
 
 const AvatarCard = ({ avatar = [], max = 4 }) => {
+  const location = useLocation();
+
   return (
     <Stack direction={"row"} spacing={0.5}>
       <AvatarGroup
@@ -25,8 +28,14 @@ const AvatarCard = ({ avatar = [], max = 4 }) => {
               left: {
                 // xs: `${0.5 + index}rem`,
                 // sm: `${index}rem`,
-                xs: `${1.75 + index}rem`,
-                sm: `${1 + index}rem`,
+                xs: `${
+                  location.pathname.includes("admin")
+                    ? 0.5 + index
+                    : 1.75 + index
+                }rem`,
+                sm: `${
+                  location.pathname.includes("admin") ? index : 1 + index
+                }rem`,
               },
             }}
           />

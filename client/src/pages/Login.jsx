@@ -1,3 +1,5 @@
+import { useFileHandler, useInputValidation } from "6pp";
+import { CameraAlt } from "@mui/icons-material";
 import {
   Avatar,
   Button,
@@ -9,11 +11,9 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
-import { CameraAlt } from "@mui/icons-material";
 import { VisuallyHiddenInput } from "../components/styles/StyledComponents";
-import { useFileHandler, useInputValidation } from "6pp";
-import { usernameValidator } from "../utils/validators";
 import { bgGradient } from "../constants/color";
+import { usernameValidator } from "../utils/validators";
 
 function Login() {
   const [isLogin, setIsLogin] = useState(true);
