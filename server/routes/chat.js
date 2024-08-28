@@ -5,6 +5,7 @@ import {
   getMyChat,
   getMyGroups,
   newGroupChat,
+  removeMember,
 } from "../controllers/chat.js";
 
 const app = express.Router();
@@ -20,5 +21,15 @@ app.get("/my", getMyChat);
 app.get("/my/groups", getMyGroups);
 
 app.put("/addmembers", addMembers);
+
+app.put("/removemember", removeMember);
+
+// app.delete('/leave/:id', )
+
+// send attachments
+
+// get messages
+
+// get chat details, rename, delete
 
 export default app;
