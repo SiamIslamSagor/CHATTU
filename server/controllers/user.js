@@ -44,7 +44,7 @@ const login = TryCatch(async (req, res, next) => {
 
 const getMyProfile = TryCatch(async (req, res) => {
   console.log("object");
-  const user = await User.findById(req.userId);
+  const user = await User.findById(req.user);
 
   res.status(200).json({
     success: true,
@@ -59,4 +59,10 @@ const logout = TryCatch(async (req, res) => {
     .json({ success: true, message: "Logged out successfully" });
 });
 
-export { newUser, login, getMyProfile, logout };
+const searchUser = TryCatch(async (req, res) => {
+  const { name } = req.query;
+
+  return res.status(200).json({ success: true, message: name });
+});
+
+export { newUser, login, getMyProfile, logout, searchUser };
