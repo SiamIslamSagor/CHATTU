@@ -4,6 +4,7 @@ import {
   addMembers,
   getMyChat,
   getMyGroups,
+  leaveGroup,
   newGroupChat,
   removeMember,
 } from "../controllers/chat.js";
@@ -24,7 +25,7 @@ app.put("/addmembers", addMembers);
 
 app.put("/removemember", removeMember);
 
-// app.delete('/leave/:id', )
+app.delete("/leave/:chatId", leaveGroup);
 
 // send attachments
 
