@@ -11,7 +11,7 @@ import { TryCatch } from "../middlewares/error.js";
 import { Chat } from "../models/chat.js";
 import { User } from "../models/user.js";
 import { Message } from "../models/message.js";
-import { emitEvent } from "../utils/features.js";
+import { deleteFilesFromCloudinary, emitEvent } from "../utils/features.js";
 import { ErrorHandler } from "../utils/utility.js";
 
 const newGroupChat = TryCatch(async (req, res, next) => {
@@ -72,7 +72,7 @@ const getMyChat = TryCatch(async (req, res, next) => {
             prev.push(curr._id);
           }
           return prev;
-        }, []), // to get just all other members id without requested user id
+        }, []), // EXP: to get just all other members id without requested user id
 
         // TODO: implement last message view system myself
         // lastMessage,
@@ -91,7 +91,7 @@ const getMyGroups = TryCatch(async (req, res, next) => {
     members: req.user,
     groupChat: true,
     creator: req.user,
-  }).populate("members", "name avatar");
+  }).populate("members", "name avatar"); // EXP: .populate is a mongoose method that help us to get data form external model. In this case we are working on Chat model, and using populate() method. in Chat model ``members: [{type: Types.ObjectId, ref: "User"}]`` we have members array with User model ref objectId. However we want name and avatar also, so we use ``.populate("members", "name avatar");`` that means at chat.members object populate the User model, get data form User model is name and avatar. and then send the populated response.
 
   const groups = chats.map(({ members, _id, groupChat, name }) => ({
     _id,
@@ -303,6 +303,119 @@ const sendAttachments = TryCatch(async (req, res, next) => {
     message,
   });
 });
+
+const getChatDetails = TryCatch(async (req, res, next) => {
+  if (req.query.populate === "true") {
+    const chat = await Chat.findById(req.params.id)
+      .populate("members", "name avatar")
+      .lean(); // EXP: .lean() by using that method we can transform the mongodb object to regular JS object. If we made any changes to that object it will automatic save the changes like as a normal JS object. However, the main thing is it's not affect to the original mongodb data
+
+    if (!chat) return next(new ErrorHandler("Chat not found", 404));
+
+    chat.members = chat.members.map(({ _id, name, avatar }) => ({
+      _id,
+      name,
+      avatar: avatar.url,
+    }));
+
+    return res.status(200).json({
+      success: true,
+      chat,
+    });
+
+    //
+  } else {
+    const chat = await Chat.findById(req.params.id);
+
+    if (!chat) return next(new ErrorHandler("Chat not found", 404));
+
+    return res.status(200).json({
+      success: true,
+      chat,
+    });
+
+    //
+  }
+});
+
+const renameGroup = TryCatch(async (req, res, next) => {
+  const chatId = req.params.id;
+  const { name } = req.body;
+
+  const chat = await Chat.findById(chatId);
+
+  if (!chat) return next(new ErrorHandler("Chat not found", 404));
+
+  if (!chat.groupChat)
+    return next(new ErrorHandler("This is not a group chat", 400));
+
+  if (chat.creator.toString() !== req.user.toString())
+    return next(
+      new ErrorHandler("You are not allowed to rename the group", 403)
+    );
+
+  chat.name = name;
+
+  await chat.save();
+
+  emitEvent(req, REFETCH_CHAT, chat.members);
+
+  return res.status(200).json({
+    success: true,
+    message: "Group renamed successfully",
+  });
+
+  //
+});
+
+const deleteChat = TryCatch(async (req, res, next) => {
+  const chatId = req.params.id;
+
+  const chat = await Chat.findById(chatId);
+
+  if (!chat) return next(new ErrorHandler("Chat not found", 404));
+
+  const members = chat.members;
+
+  if (chat.groupChat && chat.creator.toString() !== req.user.toString())
+    return next(
+      new ErrorHandler("You are not allowed to delete the group", 403)
+    );
+
+  if (!chat.groupChat && !chat.members.includes(req.user.toString()))
+    return next(
+      new ErrorHandler("You are not allowed to delete the group", 403)
+    );
+
+  // here we have to delete all messages as well as attachments or files from cloudinary
+
+  const messagesWithAttachments = await Message.find({
+    chat: chatId,
+    attachments: { $exists: true, $ne: [] }, // $ne means not equal.
+  });
+
+  const public_ids = [];
+
+  messagesWithAttachments.forEach(({ attachment }) => {
+    attachment.forEach(({ public_id }) => {
+      public_ids.push(public_id);
+    });
+  });
+
+  await Promise.all([
+    deleteFilesFromCloudinary(public_ids),
+    chat.deleteOne(),
+    Message.deleteMany({ chat: chatId }),
+  ]);
+
+  emitEvent(req, REFETCH_CHAT, members);
+
+  return res.status(200).json({
+    success: true,
+    message: "Chat deleted successfully.",
+  });
+});
+
 export {
   addMembers,
   getMyChat,
@@ -311,4 +424,7 @@ export {
   newGroupChat,
   removeMember,
   sendAttachments,
+  getChatDetails,
+  renameGroup,
+  deleteChat,
 };
