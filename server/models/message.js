@@ -1,19 +1,21 @@
-import mongoose, { Schema, model } from "mongoose";
+import mongoose, { Schema, Types, model } from "mongoose";
 
 const schema = new Schema(
   {
     content: String,
 
-    attachments: {
-      public_id: {
-        type: String,
-        required: true,
+    attachments: [
+      {
+        public_id: {
+          type: String,
+          required: true,
+        },
+        url: {
+          type: String,
+          required: true,
+        },
       },
-      url: {
-        type: String,
-        required: true,
-      },
-    },
+    ],
 
     sender: {
       type: Types.ObjectId,
